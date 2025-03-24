@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Evolved</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+        }
+        
+        .game-wrapper {
+            background-color: rgba(30, 41, 59, 0.85);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .maintenance-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        .maintenance-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: spin 4s linear infinite;
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 2rem auto;
+            max-width: 350px;
+        }
+        
+        .cell {
+            background-color: rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            aspect-ratio: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .cell:hover {
+            background-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .game-modes {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .mode-card {
+            background-color: rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .mode-card:hover {
+            background-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        button {
+            background-color: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        button:hover {
+            background-color: #7c3aed;
+        }
+        
+        .coming-soon {
+            font-weight: bold;
+            color: #fcd34d;
+            margin-top: 0.5rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .progress-bar {
+            width: 80%;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+        
+        .progress {
+            width: 75%;
+            height: 100%;
+            background-color: #8b5cf6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="game-wrapper">
+            <!-- Maintenance Overlay -->
+            <div class="maintenance-overlay">
+                <div class="maintenance-icon">⚙️</div>
+                <h2>Under Maintenance</h2>
+                <p>We're working on some exciting new features!</p>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <p>Development Progress: 75%</p>
+                <p>Expected Release: Coming Soon</p>
+            </div>
+            
+            <!-- Game Header -->
+            <div class="game-header">
+                <h1>Tic Tac Toe Evolved</h1>
+                <p>A new dimension of strategic gameplay</p>
+            </div>
+            
+            <!-- Game Modes -->
+            <div class="game-modes">
+                <div class="mode-card">
+                    <h3>Classic Mode</h3>
+                    <p>Traditional 3x3 grid gameplay</p>
+                    <div class="coming-soon">Available</div>
+                </div>
+                <div class="mode-card">
+                    <h3>Power-Up Mode</h3>
+                    <p>Collect power-ups to enhance your moves</p>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="mode-card">
+                    <h3>Ultimate 5x5</h3>
+                    <p>Extended board with special rules</p>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+            </div>
+            
+            <!-- Game Board -->
+            <div class="game-board">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+            
+            <!-- Game Stats -->
+            <div class="stats">
+                <div>
+                    <h3>Wins</h3>
+                    <p>0</p>
+                </div>
+                <div>
+                    <h3>Losses</h3>
+                    <p>0</p>
+                </div>
+                <div>
+                    <h3>Draws</h3>
+                    <p>0</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button>Start New Game</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
