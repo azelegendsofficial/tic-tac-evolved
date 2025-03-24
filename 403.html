@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Forbidden</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .error-card {
+            background-color: rgba(30, 41, 59, 0.85);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .error-code {
+            font-size: 9rem;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1;
+            background: linear-gradient(90deg, #dc2626, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .error-code::after {
+            content: "403";
+            position: absolute;
+            left: 0.25rem;
+            top: 0.25rem;
+            z-index: -1;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .error-message {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .error-description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+        
+        .error-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .lock-container {
+            position: relative;
+            margin: 2rem auto;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .lock {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #dc2626;
+            border-radius: 15px;
+            top: 50px;
+            left: 25px;
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+        }
+        
+        .lock-hook {
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            border: 15px solid #dc2626;
+            border-radius: 40px 40px 0 0;
+            top: 0;
+            left: 25px;
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+        }
+        
+        .keyhole {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(30, 41, 59, 0.85);
+            border-radius: 50%;
+            top: 85px;
+            left: 62.5px;
+        }
+        
+        .keyhole::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: rgba(30, 41, 59, 0.85);
+            top: 15px;
+            left: 7.5px;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        button {
+            background-color: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+        
+        button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .grid-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-card">
+            <div class="grid-background"></div>
+            <div class="error-icon">🔒</div>
+            <h1 class="error-code">403</h1>
+            <h2 class="error-message">Access Forbidden</h2>
+            <p class="error-description">Sorry, you don't have permission to access this area.</p>
+            
+            <div class="lock-container">
+                <div class="lock-hook"></div>
+                <div class="lock">
+                    <div class="keyhole"></div>
+                </div>
+            </div>
+            
+            <button onclick="window.location.href='/'">Return to Safety</button>
+        </div>
+    </div>
+</body>
+</html>
